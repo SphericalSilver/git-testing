@@ -1,5 +1,6 @@
 # Git and Github - The full course
 
+Git refresh by fireship.io
 Link to repo: https://github.com/SphericalSilver/git-testing.git
 
 0. `git status` - Used to show current branch, current changes, untracked files, etc.
