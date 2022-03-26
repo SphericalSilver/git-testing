@@ -28,4 +28,8 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 17. `git branch awesome` - Creates a branch using the name of the last parameter (awesome)
 18. `git branch -d awesome` - Deletes the branch "awesome" (Lowercase d makes it so the deletion only takes place when the branch hasn't been merged to master branch. Replacing it with uppercase d will cause the deletion to go through no matter what.)
 19. `git checkout awesome` - Changes current working branch to the "awesome branch".
+
+- If you checkout a new branch, and then make changes there and commit them, when you switch to any other branch, those changes should disappear as they were only there on that branch.
+- `git checkout -` - Brings you to previous branch (in case you forgot its name, this might be a helpful shortcut.)
+
 20.
