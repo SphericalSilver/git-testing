@@ -14,3 +14,4 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 8. `git remote -v` - Shows URL to remote repo.
 9. `git remote show origin` - Shows URL along with other info like the branches.
 10. `git push origin master -u` - Uploads code from local repo to remote repo. Last 2 arguments are name of remote repo (origin), and the branch we are pushing (master, in this example). The -u sets the origin repo to the upstream remote in the git config file. Essentially, we use the -u flag when the remote repository is the final source of truth.
+11. 
