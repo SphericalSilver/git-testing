@@ -1,6 +1,6 @@
 # Git and Github - The full course
 
-Git refresher by fireship.io
+Git refresher by fireship.io. Informative course!
 
 Link to repo: https://github.com/SphericalSilver/git-testing.git
 
@@ -28,4 +28,4 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 17. `git branch awesome` - Creates a branch using the name of the last parameter (awesome)
 18. `git branch -d awesome` - Deletes the branch "awesome" (Lowercase d makes it so the deletion only takes place when the branch hasn't been merged to master branch. Replacing it with uppercase d will cause the deletion to go through no matter what.)
 19. `git checkout awesome` - Changes current working branch to the "awesome branch".
-    20 .
+20.
