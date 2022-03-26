@@ -1,6 +1,6 @@
 # Git and Github - The full course
 
-Git refresher by fireship.io. Informative course!
+Git refresher by fireship.io. Informative course!! Really helpful notes.
 
 Link to repo: https://github.com/SphericalSilver/git-testing.git
 
