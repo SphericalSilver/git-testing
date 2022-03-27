@@ -30,6 +30,9 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 9. `git push origin master -u` - Uploads code from local repo to remote repo. Last 2 arguments are name of remote repo (origin), and the branch we are pushing (master, in this example). The -u sets the origin repo to the upstream remote in the git config file. Essentially, we use the -u flag when the remote repository is the final source of truth.
 10. `git fetch` - Downloads latest changes from remote repo. After this, merging still needs to be done.
 11. `git merge origin/master` - Last argument is the branch we are merging on top of the branch that we're currently locally on. In this case, the master branch from the remote repo is being merged into our local branch which we're on.
+
+- This can also be used for locally merging a feature branch on top of the local master branch (e.g. `git checkout master`, then `git checkout feature`)
+
 12. `git pull origin master` - Combines `git fetch` and `git merge`. If the `-u` flag was given during `git push`, the last 2 arguments are not needed (i.e. just `git pull` would work.) Note that if you have uncommitted changes in your local changes, git pull won't work. So either commit the changes, or stash them.
 13. `git clone <url here>` - Clones a repo to the local.
 14. `git branch` - Lists all branches in the current project.
