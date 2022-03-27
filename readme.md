@@ -2,6 +2,8 @@
 
 Git refresher by fireship.io. Informative course! Really helpful notes.
 
+## General Notes
+
 Link to repo: https://github.com/SphericalSilver/git-testing.git
 
 0. `git status` - Used to show current branch, current changes, untracked files, etc.
@@ -20,7 +22,7 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 9. `git remote show origin` - Shows URL along with other info like the branches.
 10. `git push origin master -u` - Uploads code from local repo to remote repo. Last 2 arguments are name of remote repo (origin), and the branch we are pushing (master, in this example). The -u sets the origin repo to the upstream remote in the git config file. Essentially, we use the -u flag when the remote repository is the final source of truth.
 11. `git fetch` - Downloads latest changes from remote repo. After this, merging still needs to be done.
-12. `git merge origin/master` - Last argument is the branch we are merging on top of the branch we're currently locally on. In this case, the master branch from the remote repo is being merged into our local branch which we're on.
+12. `git merge origin/master` - Last argument is the branch we are merging on top of the branch that we're currently locally on. In this case, the master branch from the remote repo is being merged into our local branch which we're on.
 13. `git pull origin master` - Combines `git fetch` and `git merge`. If the `-u` flag was given during `git push`, the last 2 arguments are not needed (i.e. just `git pull` would work.) Note that if you have uncommitted changes in your local changes, git pull won't work. So either commit the changes, or stash them.
 14. `git clone <url here>` - Clones a repo to the local.
 15. `git branch` - Lists all branches in the current project.
@@ -32,4 +34,16 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 - If you checkout a new branch, and then make changes there and commit them, when you switch to any other branch, those changes should disappear as they were only there on that branch.
 - `git checkout -` - Brings you to previous branch (in case you forgot its name, this might be a helpful shortcut.)
 
-20.
+20. `git diff` - To see changes between conflicting git branches.
+
+- `git merge --abort` - Takes us back to the original state before a merge was started. Should be used to figure out how to handle merge conflicts.
+- The easiest way to fix the merge conflict is use the editor to choose between the incoming changes (feature) or the existing changes (master). Then create a new merge commit on the current branch with the changes made, and then try to merge again.
+
+## Forking
+
+- Forking can be used to create a version of a repository in your own gitlab account, while maintaining a link to the original, such that it can fetch updates from the upstream repository
+- Often develops may fork a repo, and then clone that forked version on their local machine to and then work there to, for instance, build a new feature, then make a pull request for the author of the original repo to decide whether they want to accept that pull request.
+- Pull requests have to be made from the github or gitlab console.
+- `git remote add upstream https://github.com/fireship-io/git-sticker.git` - Add a remote link to the upstream repo (original repo)
+- `git fetch upstream` - Downloads latest changes from remote repo.
+- `git rebase upstream/master` - Adds changes from the upstream remote repository onto the local branch.
