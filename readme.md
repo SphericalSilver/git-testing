@@ -83,7 +83,7 @@ This is a really useful way to keep feature branch up to date with master branch
 3. `git reset <commit_id>` - Used when you want to reverse a commit (last argument is commit_id, which you can find using git log). Using git log again will show that the head of the branch is now that new commit. This won't automatically undo all changes, you'll still need to make the manual fixes and then recommit them. Note that you should never do a reset when the commit has already been pushed to a remote repository, as other developers may already be relying on it.
 4. `git reset --hard <commit_id>` - Deletes the committed changes from that commit_id, have to be careful when using this.
 5. `git revert <commit_id>` - Reverts the changes made from the commit_id specified. The bad commit isn't actually lost though, it will still be in history. There will be another commit created that will have been responsible for reverting the bad one - this commit can then be pushed to the remote repo. When working with a remote repo, this is preferable to git reset for the reason that it doesn't hard delete the bad commit. `git reset` is best reserved for when working locally only.
-6. `git commit --amend -a "new commit message"` - Updates the last commit message
+6. `git commit --amend -m "new commit message"` - Updates the last commit message
 7. `git commit --amend --no-edit` - Used to update a commit without changing the last commit message (maybe you made some changes you wanted to make, or there were files you didn't stage yet and you just staged them.) The advantage of this over `git revert` is that an extra commit isn't created.
 
 ## Forking
@@ -94,3 +94,26 @@ This is a really useful way to keep feature branch up to date with master branch
 - `git remote add upstream https://github.com/fireship-io/git-sticker.git` - Add a remote link to the upstream repo (original repo)
 - `git fetch upstream` - Downloads latest changes from remote repo.
 - `git rebase upstream/master` - Adds changes from the upstream remote repository onto the local branch.
+
+## Bisect
+
+Guide: https://git-scm.com/docs/git-bisect
+Git bisect allows you to start from a commit that's known to have a bug (probably most recent commit), but you knew the app was working some while ago.
+
+We can point bisect to the last known working commit, then it performs a binary search to walk us through each commit in between.
+
+- `git bisect start` - Starting from current commit.
+- `git bisect bad` - Indicates that current version is bad.
+- `git bisect good v2.6.13-rc2` - v2.6.13-rc2 is known to be good
+
+Once you have specified at least one bad and one good commit, `git bisect` selects a commit in the middle of that range of history, checks it out, and outputs something similar to the following:
+
+`Bisecting: 675 revisions left to test after this (roughly 10 steps)`
+
+You should now compile the checked-out version and test it. If that version works correctly, type `git bisect good`, and if it's broken type `git bisect bad`.
+
+`Bisecting: 337 revisions left to test after this (roughly 9 steps)`
+
+Keep repeating the process: compile the tree, test it, and depending on whether it is good or bad run `git bisect good` or `git bisect bad` to ask for the next commit that needs testing.
+
+Eventually there will be no more revisions left to inspect, and the command will print out a description of the first bad commit. The reference `refs/bisect/bad` will be left pointing at that commit.
