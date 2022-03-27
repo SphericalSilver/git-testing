@@ -51,7 +51,7 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 
 ## Stash
 
-Used for saving changes that you don't want to commit. The stash is like an array which holds on to changes you want to apply later.
+Used for saving changes in working directory that you don't want to commit. The stash is like an array which holds on to changes you want to apply later.
 
 1. `git stash` - Stashes changes.
 2. `git stash save <name1>` - Applies `git stash`, but when you do `git stash list`, you'll see a list of the stashes saved. This is useful if you want to split your stashes. `name1` here is the name of that stash that will show.
