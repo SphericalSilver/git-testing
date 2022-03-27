@@ -34,6 +34,7 @@ Link to repo: https://github.com/SphericalSilver/git-testing.git
 11. `git merge origin/master` - Last argument is the branch we are merging on top of the branch that we're currently locally on. In this case, the master branch from the remote repo is being merged into our local branch which we're on.
 
 - This can also be used for locally merging a feature branch on top of the local master branch (e.g. `git checkout master`, then `git checkout feature`)
+- Note that if the merge succeeds, git will automatically commit it, so no need to do `git commit` after a successful merge.
 
 12. `git pull origin master` - Combines `git fetch` and `git merge`. If the `-u` flag was given during `git push`, the last 2 arguments are not needed (i.e. just `git pull` would work.) Note that if you have uncommitted changes in your local changes, git pull won't work. So either commit the changes, or stash them.
 13. `git clone <url here>` - Clones a repo to the local.
