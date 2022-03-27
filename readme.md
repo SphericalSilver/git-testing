@@ -2,6 +2,8 @@
 
 Git refresher by fireship.io. Informative course! Really helpful notes.
 
+These notes were taken from this course: https://fireship.io/courses/git/
+
 ## General Notes
 
 Link to repo: https://github.com/SphericalSilver/git-testing.git
